@@ -5,687 +5,219 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bad Dog Data — Data Consultant</title>
 <meta name="description" content="Data consultant specializing in analytics, BI, infrastructure, and insights. Available globally, based in Almaty.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --bg: #f2f2f2;
-    --card: #ffffff;
-    --ink: #111111;
-    --muted: #6b7280;
-    --accent: #111111;
-    --red: #dc2626;
-    --border: #e5e5e5;
-    --radius: 16px;
-    --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--font);
-    font-size: 14px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* NAV */
-  nav {
-    max-width: 768px;
-    margin: 0 auto;
-    padding: 2rem 1rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .nav-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--ink);
-    text-decoration: none;
-    line-height: 1.2;
-  }
-
-  .nav-sub {
-    font-size: 0.8rem;
-    color: var(--muted);
-    margin-top: 2px;
-  }
-
-  .nav-btns {
-    display: flex;
-    gap: 0.5rem;
-    flex-shrink: 0;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-family: var(--font);
-    font-size: 0.8rem;
-    font-weight: 500;
-    padding: 0.45rem 0.9rem;
-    border-radius: 8px;
-    border: 1.5px solid var(--border);
-    background: var(--card);
-    color: var(--ink);
-    text-decoration: none;
-    cursor: pointer;
-    transition: border-color 0.15s, background 0.15s;
-    white-space: nowrap;
-  }
-
-  .btn:hover { border-color: #bbb; background: #fafafa; }
-
-  .btn-dark {
-    background: var(--ink);
-    border-color: var(--ink);
-    color: #fff;
-  }
-
-  .btn-dark:hover { background: #333; border-color: #333; background: #222; }
-
-  /* MAIN WRAP */
-  .wrap {
-    max-width: 768px;
-    margin: 0 auto;
-    padding: 0 1rem 4rem;
-  }
-
-  /* HERO CARD */
-  .hero-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 2.5rem 2.5rem 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .hero-label {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 1rem;
-  }
-
-  .hero-title {
-    font-size: clamp(1.9rem, 5vw, 2.8rem);
-    font-weight: 600;
-    line-height: 1.15;
-    letter-spacing: -0.03em;
-    color: var(--ink);
-    margin-bottom: 1rem;
-  }
-
-  .hero-desc {
-    font-size: 0.95rem;
-    color: var(--muted);
-    line-height: 1.7;
-    max-width: 52ch;
-    margin-bottom: 1.75rem;
-  }
-
-  .hero-desc strong { color: var(--ink); font-weight: 500; }
-
-  .hero-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
-
-  .hero-industries {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  .ind-label {
-    font-size: 0.72rem;
-    color: var(--muted);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-right: 0.25rem;
-  }
-
-  .ind-tag {
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: var(--muted);
-    background: var(--bg);
-    border: 1px solid var(--border);
-    padding: 0.25rem 0.65rem;
-    border-radius: 6px;
-  }
-
-  /* 2-COL GRID */
-  .grid-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  /* STAT CARD */
-  .stat-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 1.5rem 1.75rem;
-  }
-
-  .stat-num {
-    font-size: 2.2rem;
-    font-weight: 600;
-    letter-spacing: -0.04em;
-    color: var(--ink);
-    line-height: 1;
-    margin-bottom: 0.35rem;
-  }
-
-  .stat-desc {
-    font-size: 0.8rem;
-    color: var(--muted);
-    line-height: 1.4;
-  }
-
-  /* AVAILABILITY CARD */
-  .avail-card {
-    background: var(--ink);
-    border-radius: var(--radius);
-    padding: 1.5rem 1.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .avail-left { display: flex; align-items: center; gap: 0.75rem; }
-
-  .pulse-dot {
-    width: 9px; height: 9px;
-    background: #4ade80;
-    border-radius: 50%;
-    flex-shrink: 0;
-    position: relative;
-  }
-
-  .pulse-dot::after {
-    content: '';
-    position: absolute;
-    inset: -4px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(74,222,128,0.4);
-    animation: ring 2s ease-in-out infinite;
-  }
-
-  @keyframes ring {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.7); opacity: 0; }
-  }
-
-  .avail-text {
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: #fff;
-  }
-
-  .avail-location {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.45);
-    text-align: right;
-    line-height: 1.5;
-  }
-
-  /* SERVICES */
-  .section-title {
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 0.75rem;
-    margin-top: 0.5rem;
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .service-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 1.5rem 1.75rem;
-  }
-
-  .service-num {
-    font-size: 0.68rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    color: var(--muted);
-    margin-bottom: 0.75rem;
-    text-transform: uppercase;
-  }
-
-  .service-name {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-  }
-
-  .service-desc {
-    font-size: 0.82rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-
-  /* WHO I WORK WITH */
-  .clients-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 2rem 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .client-rows { margin-top: 1.25rem; display: flex; flex-direction: column; gap: 0; }
-
-  .client-row {
-    display: flex;
-    gap: 1.25rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border);
-    align-items: baseline;
-  }
-
-  .client-row:last-child { border-bottom: none; padding-bottom: 0; }
-
-  .client-name {
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: var(--ink);
-    min-width: 160px;
-    flex-shrink: 0;
-  }
-
-  .client-detail {
-    font-size: 0.82rem;
-    color: var(--muted);
-    line-height: 1.55;
-  }
-
-  /* ENGAGEMENT */
-  .engage-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .engage-options {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 1.25rem;
-  }
-
-  .engage-row {
-    display: flex;
-    gap: 1rem;
-    padding: 0.85rem 0;
-    border-bottom: 1px solid var(--border);
-    align-items: center;
-  }
-
-  .engage-row:last-child { border-bottom: none; padding-bottom: 0; }
-
-  .engage-dot {
-    width: 6px; height: 6px;
-    background: var(--ink);
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .engage-text { font-size: 0.83rem; color: var(--muted); line-height: 1.5; }
-  .engage-text strong { color: var(--ink); font-weight: 500; }
-
-  /* CONTACT */
-  .contact-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 2rem 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .contact-title {
-    font-size: 1.35rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin-bottom: 0.5rem;
-    line-height: 1.25;
-  }
-
-  .contact-sub {
-    font-size: 0.85rem;
-    color: var(--muted);
-    margin-bottom: 1.5rem;
-    line-height: 1.65;
-  }
-
-  .channels { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem; }
-
-  .channel {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    padding: 0.9rem 1rem;
-    background: var(--bg);
-    border-radius: 10px;
-    text-decoration: none;
-    color: var(--ink);
-    border: 1px solid transparent;
-    transition: border-color 0.15s;
-  }
-
-  .channel:hover { border-color: #ddd; }
-
-  .ch-icon {
-    width: 32px; height: 32px;
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px;
-    font-weight: 600;
-    flex-shrink: 0;
-    color: #fff;
-  }
-
-  .ch-li { background: #0a66c2; }
-  .ch-tg { background: #2aabee; }
-  .ch-wa { background: #25d366; }
-  .ch-em { background: #555; }
-
-  .ch-name { font-size: 0.85rem; font-weight: 500; color: var(--ink); }
-  .ch-val  { font-size: 0.75rem; color: var(--muted); }
-
-  /* FORM */
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-
-  .field { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 0.75rem; }
-
-  .field label {
-    font-size: 0.72rem;
-    font-weight: 500;
-    color: var(--muted);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  .field input, .field textarea, .field select {
-    font-family: var(--font);
-    font-size: 0.85rem;
-    color: var(--ink);
-    background: var(--bg);
-    border: 1.5px solid var(--border);
-    border-radius: 10px;
-    padding: 0.65rem 0.85rem;
-    outline: none;
-    transition: border-color 0.15s;
-    -webkit-appearance: none;
-  }
-
-  .field input:focus, .field textarea:focus { border-color: #999; }
-  .field textarea { height: 100px; resize: vertical; font-family: var(--font); }
-
-  .form-submit {
-    width: 100%;
-    font-family: var(--font);
-    font-size: 0.85rem;
-    font-weight: 500;
-    background: var(--ink);
-    color: #fff;
-    border: none;
-    padding: 0.8rem;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.15s;
-    margin-top: 0.25rem;
-  }
-
-  .form-submit:hover { background: #333; }
-
-  .form-note {
-    text-align: center;
-    font-size: 0.72rem;
-    color: var(--muted);
-    margin-top: 0.6rem;
-  }
-
-  /* FOOTER */
-  footer {
-    max-width: 768px;
-    margin: 0 auto;
-    padding: 0 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.75rem;
-    color: var(--muted);
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  footer a { color: var(--muted); text-decoration: none; }
-  footer a:hover { color: var(--ink); }
-
-  /* MOBILE */
-  @media (max-width: 580px) {
-    .hero-card { padding: 1.75rem 1.25rem 1.5rem; }
-    .grid-2 { grid-template-columns: 1fr 1fr; }
-    .services-grid { grid-template-columns: 1fr; }
-    .avail-location { display: none; }
-    .client-row { flex-direction: column; gap: 0.25rem; }
-    .client-name { min-width: unset; }
-    .form-grid { grid-template-columns: 1fr; }
-    .contact-card, .clients-card, .engage-card { padding: 1.5rem 1.25rem; }
-  }
+  body { background-color: #f2f2f2; font-size: 0.875rem; }
+  .pulse-dot { width: 9px; height: 9px; background: #4ade80; border-radius: 50%; flex-shrink: 0; position: relative; display: inline-block; }
+  .pulse-dot::after { content: ''; position: absolute; inset: -4px; border-radius: 50%; border: 1.5px solid rgba(74,222,128,0.4); animation: ring 2s ease-in-out infinite; }
+  @keyframes ring { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.7); opacity: 0; } }
 </style>
 </head>
-<body>
+<body class="antialiased">
 
-<!-- NAV -->
-<nav>
-  <div>
-    <a href="/" class="nav-title">Data Consultant</a>
-    <div class="nav-sub">From Almaty, Kazakhstan to the world!</div>
-  </div>
-  <div class="nav-btns">
-    <a href="https://linkedin.com/in/akzhanberdi" target="_blank" class="btn">LinkedIn</a>
-    <a href="https://t.me/akzhan_berdi" target="_blank" class="btn">Telegram</a>
-  </div>
-</nav>
+<div class="max-w-3xl px-4 mx-auto">
 
-<div class="wrap">
+  <!-- NAV — identical structure to blog -->
+  <header class="mt-8 mb-4 flex justify-between items-end">
+    <div>
+      <h2 class="text-2xl font-semibold">
+        <a href="/">Data Consultant</a>
+      </h2>
+      <p class="text-gray-500">From Almaty, Kazakhstan to the world!</p>
+    </div>
+    <div class="text-right flex gap-2 items-end">
+      <a href="https://linkedin.com/in/akzhanberdi" target="_blank">
+        <button class="py-2 px-4 bg-white rounded-xl border my-2">LinkedIn</button>
+      </a>
+      <a href="https://t.me/akzhan_berdi" target="_blank">
+        <button class="py-2 px-4 bg-white rounded-xl border my-2">Telegram</button>
+      </a>
+    </div>
+  </header>
 
   <!-- HERO -->
-  <div class="hero-card">
-    <p class="hero-label">Data Consultant — Available Globally</p>
-    <h1 class="hero-title">Most companies I talk to<br>have the same problem.</h1>
-    <p class="hero-desc">
-      They have data. They just can't use it. Either the infrastructure is brittle, the reports don't match finance, the team doesn't exist yet — or all three at once. I fix that, end-to-end, across <strong>Oil & Gas, FMCG, Fintech, and Marketplaces</strong>.
+  <div class="bg-white rounded-2xl overflow-hidden mb-4 p-8">
+    <p class="text-xs font-medium tracking-widest uppercase text-gray-400 mb-4">Data Consultant — Available Globally</p>
+    <h1 class="text-4xl font-semibold text-gray-900 leading-tight mb-4">Most companies I talk to<br>have the same problem.</h1>
+    <p class="text-gray-500 leading-relaxed mb-6 max-w-xl">
+      They have data. They just can't use it. Either the infrastructure is brittle, the reports don't match finance, the team doesn't exist yet — or all three at once. I fix that, end-to-end, across <strong class="text-gray-800 font-medium">Oil & Gas, FMCG, Fintech, and Marketplaces</strong>.
     </p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn btn-dark">Start a conversation</a>
-      <a href="https://blog.baddogdata.com" target="_blank" class="btn">Read the blog →</a>
+    <div class="flex gap-3 flex-wrap">
+      <a href="#contact">
+        <button class="py-2 px-5 bg-gray-900 text-white rounded-xl font-medium">Start a conversation</button>
+      </a>
+      <a href="https://blog.baddogdata.com" target="_blank">
+        <button class="py-2 px-5 bg-white rounded-xl border font-medium">Read the blog →</button>
+      </a>
     </div>
   </div>
 
-  <!-- STATS ROW -->
-  <div class="grid-2">
-    <div class="stat-card">
-      <div class="stat-num">10+</div>
-      <div class="stat-desc">Years working in data across industries and company sizes</div>
+  <!-- STATS -->
+  <div class="grid grid-cols-2 gap-4 mb-4">
+    <div class="bg-white rounded-2xl p-6">
+      <div class="text-4xl font-semibold text-gray-900 mb-1">10+</div>
+      <div class="text-gray-500 text-sm">Years working in data across industries and company sizes</div>
     </div>
-    <div class="stat-card">
-      <div class="stat-num">End-to-end</div>
-      <div class="stat-desc">Pipelines, warehouses, dashboards, models, teams — one person</div>
+    <div class="bg-white rounded-2xl p-6">
+      <div class="text-2xl font-semibold text-gray-900 mb-1">End-to-end</div>
+      <div class="text-gray-500 text-sm">Pipelines, warehouses, dashboards, models, teams — one person</div>
     </div>
   </div>
 
   <!-- AVAILABILITY -->
-  <div class="avail-card">
-    <div class="avail-left">
+  <div class="bg-gray-900 rounded-2xl p-5 mb-4 flex items-center justify-between">
+    <div class="flex items-center gap-3">
       <span class="pulse-dot"></span>
-      <span class="avail-text">Available for new projects</span>
+      <span class="text-white font-medium text-sm">Available for new projects</span>
     </div>
-    <div class="avail-location">Remote worldwide<br>Based in Almaty, KZ</div>
+    <span class="text-gray-500 text-xs text-right">Remote worldwide<br>Based in Almaty, KZ</span>
   </div>
 
   <!-- SERVICES -->
-  <p class="section-title">What I do</p>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-num">01</div>
-      <div class="service-name">Data Infrastructure & Architecture</div>
-      <p class="service-desc">Pipelines, data warehouses, cloud setup. Airflow, PostgreSQL, MS SQL, AWS — built to scale and not break at 3am.</p>
+  <p class="text-xs font-medium tracking-widest uppercase text-gray-400 mb-3 mt-1">What I do</p>
+  <div class="grid grid-cols-2 gap-4 mb-4">
+
+    <div class="bg-white rounded-2xl p-6">
+      <div class="text-xs text-gray-400 uppercase tracking-widest mb-3">01</div>
+      <div class="font-semibold text-gray-900 mb-2">Data Infrastructure & Architecture</div>
+      <p class="text-gray-500 text-sm leading-relaxed">Pipelines, data warehouses, cloud setup. Airflow, PostgreSQL, MS SQL, AWS — built to scale and not break at 3am.</p>
     </div>
-    <div class="service-card">
-      <div class="service-num">02</div>
-      <div class="service-name">BI & Analytics</div>
-      <p class="service-desc">Power BI dashboards (PL-300 certified), KPI frameworks, and reporting that executives actually read.</p>
+
+    <div class="bg-white rounded-2xl p-6">
+      <div class="text-xs text-gray-400 uppercase tracking-widest mb-3">02</div>
+      <div class="font-semibold text-gray-900 mb-2">BI & Analytics</div>
+      <p class="text-gray-500 text-sm leading-relaxed">Power BI dashboards (PL-300 certified), KPI frameworks, and reporting that executives actually read.</p>
     </div>
-    <div class="service-card">
-      <div class="service-num">03</div>
-      <div class="service-name">Finance Data & Reconciliation</div>
-      <p class="service-desc">Build the data layer that makes your P&L, cost allocation, and financial reporting finally agree with each other.</p>
+
+    <div class="bg-white rounded-2xl p-6">
+      <div class="text-xs text-gray-400 uppercase tracking-widest mb-3">03</div>
+      <div class="font-semibold text-gray-900 mb-2">Finance Data & Reconciliation</div>
+      <p class="text-gray-500 text-sm leading-relaxed">Build the data layer that makes your P&L, cost allocation, and financial reporting finally agree with each other.</p>
     </div>
-    <div class="service-card">
-      <div class="service-num">04</div>
-      <div class="service-name">Market & Business Insights</div>
-      <p class="service-desc">Competitive intelligence, demand signals, customer segments — data-driven answers to real business questions.</p>
+
+    <div class="bg-white rounded-2xl p-6">
+      <div class="text-xs text-gray-400 uppercase tracking-widest mb-3">04</div>
+      <div class="font-semibold text-gray-900 mb-2">Market & Business Insights</div>
+      <p class="text-gray-500 text-sm leading-relaxed">Competitive intelligence, demand signals, customer segments — data-driven answers to real business questions.</p>
     </div>
-    <div class="service-card">
-      <div class="service-num">05</div>
-      <div class="service-name">Predictive Analytics & A/B Testing</div>
-      <p class="service-desc">Forecasts, ML models, experimentation environments for digital products. Decisions from evidence, not guesswork.</p>
+
+    <div class="bg-white rounded-2xl p-6">
+      <div class="text-xs text-gray-400 uppercase tracking-widest mb-3">05</div>
+      <div class="font-semibold text-gray-900 mb-2">Predictive Analytics & A/B Testing</div>
+      <p class="text-gray-500 text-sm leading-relaxed">Forecasts, ML models, experimentation environments for digital products. Decisions from evidence, not guesswork.</p>
     </div>
-    <div class="service-card">
-      <div class="service-num">06</div>
-      <div class="service-name">Machine Learning & AI Integration</div>
-      <p class="service-desc">From classification and regression models to LLM-powered features in your product — practical AI that solves a real business problem, not a demo that lives in a notebook.</p>
+
+    <div class="bg-white rounded-2xl p-6">
+      <div class="text-xs text-gray-400 uppercase tracking-widest mb-3">06</div>
+      <div class="font-semibold text-gray-900 mb-2">Machine Learning & AI Integration</div>
+      <p class="text-gray-500 text-sm leading-relaxed">From classification models to LLM-powered features — practical AI that solves a real business problem, not a demo that lives in a notebook.</p>
     </div>
-    <div class="service-card">
-      <div class="service-num">07</div>
-      <div class="service-name">Data Team Building</div>
-      <p class="service-desc">Building from zero — hiring, structuring, and leading data teams. I've done it, I can help you do it too.</p>
+
+    <div class="bg-white rounded-2xl p-6 col-span-2">
+      <div class="text-xs text-gray-400 uppercase tracking-widest mb-3">07</div>
+      <div class="font-semibold text-gray-900 mb-2">Data Team Building</div>
+      <p class="text-gray-500 text-sm leading-relaxed">Building from zero — hiring, structuring, and leading data teams. I've done it, I can help you do it too.</p>
     </div>
+
   </div>
 
   <!-- WHO I WORK WITH -->
-  <div class="clients-card">
-    <p class="section-title" style="margin-top:0">Who I work with</p>
-    <h2 style="font-size:1.1rem;font-weight:600;letter-spacing:-0.02em;color:var(--ink);">Any company that takes data seriously.</h2>
-    <div class="client-rows">
-      <div class="client-row">
-        <div class="client-name">Large enterprises</div>
-        <div class="client-detail">Strategic data architecture, BI rollout across divisions, financial data systems. Engagement structures that work for your tax and procurement requirements.</div>
+  <div class="bg-white rounded-2xl p-6 mb-4">
+    <p class="text-xs font-medium tracking-widest uppercase text-gray-400 mb-3">Who I work with</p>
+    <h2 class="text-xl font-semibold text-gray-900 mb-4">Any company that takes data seriously.</h2>
+    <div class="divide-y divide-gray-100">
+      <div class="py-4 flex gap-6">
+        <div class="text-gray-900 font-medium text-sm w-40 flex-shrink-0">Large enterprises</div>
+        <div class="text-gray-500 text-sm leading-relaxed">Strategic data architecture, BI rollout across divisions, financial data systems. Engagement structures that work for your tax and procurement requirements.</div>
       </div>
-      <div class="client-row">
-        <div class="client-name">Mid-size businesses</div>
-        <div class="client-detail">Fixing pipelines that shouldn't break, dashboards that don't lie, and reporting your team will actually trust. Project-based or ongoing.</div>
+      <div class="py-4 flex gap-6">
+        <div class="text-gray-900 font-medium text-sm w-40 flex-shrink-0">Mid-size businesses</div>
+        <div class="text-gray-500 text-sm leading-relaxed">Fixing pipelines that shouldn't break, dashboards that don't lie, and reporting your team will actually trust. Project-based or ongoing.</div>
       </div>
-      <div class="client-row">
-        <div class="client-name">Startups</div>
-        <div class="client-detail">First data hire without the headcount. Analytics foundation, product metrics, A/B testing — at a rate that makes sense for where you are.</div>
+      <div class="py-4 flex gap-6">
+        <div class="text-gray-900 font-medium text-sm w-40 flex-shrink-0">Startups</div>
+        <div class="text-gray-500 text-sm leading-relaxed">First data hire without the headcount. Analytics foundation, product metrics, A/B testing — at a rate that makes sense for where you are.</div>
       </div>
-      <div class="client-row">
-        <div class="client-name">International & remote</div>
-        <div class="client-detail">Fully available for global remote engagements. Open to relocation or extended on-site for the right project.</div>
+      <div class="py-4 flex gap-6">
+        <div class="text-gray-900 font-medium text-sm w-40 flex-shrink-0">International & remote</div>
+        <div class="text-gray-500 text-sm leading-relaxed">Fully available for global remote engagements. Open to relocation or extended on-site for the right project.</div>
       </div>
     </div>
   </div>
 
-  <!-- ENGAGEMENT -->
-  <div class="engage-card">
-    <p class="section-title" style="margin-top:0">How we can work together</p>
-    <h2 style="font-size:1.1rem;font-weight:600;letter-spacing:-0.02em;color:var(--ink);">Flexible on structure, firm on outcomes.</h2>
-    <div class="engage-options">
-      <div class="engage-row">
-        <span class="engage-dot"></span>
-        <span class="engage-text"><strong>Project contract</strong> — clear scope, clear deliverable, fixed or milestone-based fee</span>
+  <!-- HOW WE WORK -->
+  <div class="bg-white rounded-2xl p-6 mb-4">
+    <p class="text-xs font-medium tracking-widest uppercase text-gray-400 mb-3">How we can work together</p>
+    <h2 class="text-xl font-semibold text-gray-900 mb-4">Flexible on structure, firm on outcomes.</h2>
+    <div class="divide-y divide-gray-100">
+      <div class="py-3 flex gap-3 items-start">
+        <span class="w-1.5 h-1.5 rounded-full bg-gray-900 flex-shrink-0 mt-2"></span>
+        <span class="text-gray-500 text-sm"><span class="text-gray-900 font-medium">Project contract</span> — clear scope, clear deliverable, fixed or milestone-based fee</span>
       </div>
-      <div class="engage-row">
-        <span class="engage-dot"></span>
-        <span class="engage-text"><strong>Retainer</strong> — ongoing data partner for your team, monthly commitment</span>
+      <div class="py-3 flex gap-3 items-start">
+        <span class="w-1.5 h-1.5 rounded-full bg-gray-900 flex-shrink-0 mt-2"></span>
+        <span class="text-gray-500 text-sm"><span class="text-gray-900 font-medium">Retainer</span> — ongoing data partner for your team, monthly commitment</span>
       </div>
-      <div class="engage-row">
-        <span class="engage-dot"></span>
-        <span class="engage-text"><strong>Embedded consulting</strong> — I work inside your team for a defined period, full context</span>
+      <div class="py-3 flex gap-3 items-start">
+        <span class="w-1.5 h-1.5 rounded-full bg-gray-900 flex-shrink-0 mt-2"></span>
+        <span class="text-gray-500 text-sm"><span class="text-gray-900 font-medium">Embedded consulting</span> — I work inside your team for a defined period, full context</span>
       </div>
-      <div class="engage-row">
-        <span class="engage-dot"></span>
-        <span class="engage-text"><strong>Enterprise structures</strong> — B2B invoicing, legal entity-to-entity contracts, tax-deductible for your company</span>
+      <div class="py-3 flex gap-3 items-start">
+        <span class="w-1.5 h-1.5 rounded-full bg-gray-900 flex-shrink-0 mt-2"></span>
+        <span class="text-gray-500 text-sm"><span class="text-gray-900 font-medium">Enterprise structures</span> — B2B invoicing, legal entity-to-entity contracts, tax-deductible for your company</span>
       </div>
     </div>
   </div>
 
   <!-- CONTACT -->
-  <div class="contact-card" id="contact">
-    <h2 class="contact-title">Let's talk about your data.</h2>
-    <p class="contact-sub">Tell me what you're working on — I'll come back with a clear picture of how I can help.</p>
+  <div class="bg-white rounded-2xl p-6 mb-4" id="contact">
+    <p class="text-xs font-medium tracking-widest uppercase text-gray-400 mb-3">Get in touch</p>
+    <h2 class="text-xl font-semibold text-gray-900 mb-2">Let's talk about your data.</h2>
+    <p class="text-gray-500 text-sm mb-5">Tell me what you're working on — I'll come back with a clear picture of how I can help.</p>
+    <div class="flex flex-col gap-2">
 
-    <div class="channels">
-      <a href="https://linkedin.com/in/akzhanberdi" target="_blank" class="channel">
-        <div class="ch-icon ch-li">in</div>
+      <a href="https://linkedin.com/in/akzhanberdi" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
+        <div class="w-8 h-8 rounded-lg flex-shrink-0 text-white text-xs font-semibold" style="background:#0a66c2;display:flex;align-items:center;justify-content:center;">in</div>
         <div>
-          <div class="ch-name">LinkedIn</div>
-          <div class="ch-val">linkedin.com/in/akzhanberdi</div>
+          <div class="text-gray-900 font-medium text-sm">LinkedIn</div>
+          <div class="text-gray-400 text-xs">linkedin.com/in/akzhanberdi</div>
         </div>
       </a>
-      <a href="https://t.me/akzhan_berdi" target="_blank" class="channel">
-        <div class="ch-icon ch-tg">✈</div>
+
+      <a href="https://t.me/akzhan_berdi" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
+        <div class="w-8 h-8 rounded-lg flex-shrink-0 text-white text-xs" style="background:#2aabee;display:flex;align-items:center;justify-content:center;">✈</div>
         <div>
-          <div class="ch-name">Telegram</div>
-          <div class="ch-val">@akzhan_berdi</div>
+          <div class="text-gray-900 font-medium text-sm">Telegram</div>
+          <div class="text-gray-400 text-xs">@akzhan_berdi</div>
         </div>
       </a>
-      <a href="https://wa.me/77713974173" target="_blank" class="channel">
-        <div class="ch-icon ch-wa">✓</div>
+
+      <a href="https://wa.me/77713974173" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
+        <div class="w-8 h-8 rounded-lg flex-shrink-0 text-white text-xs" style="background:#25d366;display:flex;align-items:center;justify-content:center;">✓</div>
         <div>
-          <div class="ch-name">WhatsApp</div>
-          <div class="ch-val">+7 771 397 4173</div>
+          <div class="text-gray-900 font-medium text-sm">WhatsApp</div>
+          <div class="text-gray-400 text-xs">+7 771 397 4173</div>
         </div>
       </a>
-      <a href="mailto:akzhan.berdeyev@gmail.com" class="channel">
-        <div class="ch-icon ch-em">@</div>
+
+      <a href="mailto:akzhan.berdeyev@gmail.com" class="flex items-center gap-3 p-3 rounded-xl bg-gray-50 hover:bg-gray-100 transition-colors">
+        <div class="w-8 h-8 rounded-lg flex-shrink-0 text-white text-xs" style="background:#374151;display:flex;align-items:center;justify-content:center;">@</div>
         <div>
-          <div class="ch-name">Email</div>
-          <div class="ch-val">akzhan.berdeyev@gmail.com</div>
+          <div class="text-gray-900 font-medium text-sm">Email</div>
+          <div class="text-gray-400 text-xs">akzhan.berdeyev@gmail.com</div>
         </div>
       </a>
+
     </div>
+  </div>
 
-
+  <!-- FOOTER -->
+  <div class="flex justify-between items-center py-6 text-gray-400 text-xs">
+    <span>© 2025 Akzhan · <a href="https://blog.baddogdata.com" target="_blank" class="hover:text-gray-600">blog.baddogdata.com</a></span>
+    <span>Based in Almaty, Kazakhstan</span>
   </div>
 
 </div>
-
-<!-- FOOTER -->
-<footer>
-  <span>© 2025 Akzhan · <a href="https://blog.baddogdata.com" target="_blank">blog.baddogdata.com</a></span>
-  <span>Based in Almaty, Kazakhstan</span>
-</footer>
+</body>
+</html>
